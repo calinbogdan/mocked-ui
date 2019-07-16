@@ -1,0 +1,48 @@
+*
+  color white
+  font-family monospace
+  
+body
+  margin 0;
+  height 100vh
+
+h1, h2, h3, h4, h5, h6
+  margin 0
+
+#app 
+  display flex
+  flex-direction column
+  height 100%
+
+.container 
+  padding 16px
+
+#header-container
+  background-color #DD0031
+  display flex
+  align-items center
+
+#main-container 
+  display flex
+  flex 1
+
+#sidebar     
+  background-color #333
+  justify-content center
+  ul 
+    list-style none outside   
+    li
+      font-size 14px
+      padding 16px
+      text-align: right
+      &:hover 
+        font-weight: bold
+        cursor pointer
+        position relative
+        right: 16px
+
+#content 
+  background-color #f1f1f1
+  flex 1
+  *
+    color #222
