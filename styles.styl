@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6
   background-color #DD0031
   display flex
   align-items center
+  padding-left 64px
 
 #main-container 
   display flex
@@ -28,21 +29,26 @@ h1, h2, h3, h4, h5, h6
 
 #sidebar     
   background-color #333
-  justify-content center
+  justify-content: flex-end
   ul 
     list-style none outside   
     li
       font-size 14px
       padding 16px
       text-align: right
-      &:hover 
+      &:hover, &.selected
         font-weight: bold
         cursor pointer
-        position relative
-        right: 16px
-
+        transform: translate(-16px, 0)
 #content 
   background-color #f1f1f1
   flex 1
-  *
-    color #222
+  ul
+    list-style: none
+    li 
+      margin 16px
+      *
+        color #555
+      &:hover *
+        color #111
+        cursor pointer
