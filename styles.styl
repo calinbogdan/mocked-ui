@@ -6,6 +6,9 @@ body
   margin 0;
   height 100vh
 
+.hidden 
+  display none
+
 h1, h2, h3, h4, h5, h6
   margin 0
 
@@ -39,16 +42,16 @@ h1, h2, h3, h4, h5, h6
       &:hover, &.selected
         font-weight: bold
         cursor pointer
-        transform: translate(-16px, 0)
+        text-decoration: underline
 #content 
   background-color #f1f1f1
   flex 1
   ul
     list-style: none
     li 
-      margin 16px
+      padding 16px
       *
         color #555
       &:hover *
         color #111
-        cursor pointer
+        cursor default

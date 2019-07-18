@@ -4,6 +4,7 @@
 <head>
     <title>Mocked stuff</title>
     <link rel="stylesheet" href="dist/styles.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -14,36 +15,55 @@
         <div id="main-container">
             <div id="sidebar" class="container">
                 <ul>
-                    <li class="selected">Inbox</li>
-                    <li>Movies to watch</li>
-                    <li>Trips</li>
-                    <li>Groceries</li>
-                    <li>Upcoming</li>
+                    <li data-id="0">Chores to do at home</li>
+                    <li data-id="1">Chores to do at work</li>
                 </ul>
             </div>
             <div id="content" class="container">
-                <ul>
+                <ul data-id="0" class="hidden">
                     <li>
-                        <h2>Take the first dog out</h2>
-                        <p>Extra details about the dog</p>
+                        <h2>Take out the trash</h2>
                     </li>
                     <li>
-                        <h2>Take the other dog out</h2>
-                        <p>Extra details about the dog</p>
+                        <h2>Wash the dishes</h2>
                     </li>
                     <li>
-                        <h2>Take the next dog out</h2>
-                        <p>Extra details about the dog</p>
+                        <h2>Do the laundry</h2>
+                    </li>
+                </ul>
+                <ul data-id="1">
+                    <li>
+                        <h2>Fill out TimeCenter</h2>
                     </li>
                     <li>
-                        <h2>Take all the dogs out</h2>
-                        <p>Extra details about the dog</p>
+                        <h2>Attend the course from 10 o'clock</h2>
                     </li>
-
+                    <li>
+                        <h2>Attend the course from 13 o'clock</h2>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <script>
+        const highlightList = id => {
+            $(`#content ul`).addClass('hidden');
+            $(`ul[data-id=${id}]`).removeClass('hidden');
+
+            $('#sidebar li').removeClass('selected');
+            $(`li[data-id=${id}]`).addClass('selected');
+        };
+
+        $(document).ready(function (event) {
+            highlightList(0);
+            
+            $('#sidebar > ul > li').click(function (event) {
+                const id = $(this).data("id");
+                highlightList(id);
+            });
+        });
+    </script>
 </body>
 
 </html>
